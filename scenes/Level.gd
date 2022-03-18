@@ -30,9 +30,9 @@ func connect_to_clients_signals(client):
 func init_new_client():
 	var client = client_scene.instance()
 	client.position = compute_new_client_position()
-	client.register_station(get_node("Station"))
-	client.register_station(get_node("Station2"))
-	client.register_station(get_node("Station3"))
+	var stations = get_tree().get_nodes_in_group("Stations")
+	for station in stations:
+		client.register_station(station)
 	return client
 	
 func compute_new_client_position(): 

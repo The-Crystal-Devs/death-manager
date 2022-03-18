@@ -22,6 +22,7 @@ func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
 	and event.is_pressed():
+		get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME ,"Clients", "unselect")
 		selected = true;
 
 func _on_Station_selected(station):
@@ -39,3 +40,6 @@ func leave_station():
 	self.used_station = null
 	emit_signal("client_left", money)
 	queue_free()
+
+func unselect():
+	self.selected = false
