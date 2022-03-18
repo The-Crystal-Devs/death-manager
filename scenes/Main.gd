@@ -30,7 +30,7 @@ func compute_new_client_position():
 	if(last_client == null):
 		return Vector2(42, 42)
 	
-	return last_client.position + Vector2(last_client.get_node("Sprite").texture.get_width() + 6, 0)
+	return last_client.position + Vector2(last_client.get_node("ClientSprite").texture.get_width() + 6, 0)
 
 func _on_NewClientTimer_timeout():
 	spawn_client()

@@ -12,6 +12,14 @@ client_scene = ExtResource( 2 )
 [node name="Station" parent="." instance=ExtResource( 3 )]
 position = Vector2( 531, 256 )
 
+[node name="Station2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 623, 257 )
+type = 1
+
+[node name="Station3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 722, 257 )
+type = 2
+
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="NewClientTimer" type="Timer" parent="."]

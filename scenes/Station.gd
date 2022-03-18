@@ -3,7 +3,7 @@ extends Area2D
 signal station_selected
 
 enum StationType {TYPE_1, TYPE_2, TYPE_3}
-export var type = StationType.TYPE_1
+export (StationType) var type = StationType.TYPE_1
 var client = null
 
 func _ready():

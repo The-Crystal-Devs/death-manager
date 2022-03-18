@@ -14,6 +14,15 @@ config/name="minijam102"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://assets/icon.png"
 
+[autoload]
+
+StationType="*res://scenes/scripts/StationType.gd"
+
+[global]
+
+export=false
+import=false
+
 [input]
 
 left_click={
