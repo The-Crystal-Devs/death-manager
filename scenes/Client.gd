@@ -8,10 +8,8 @@ export var money = 9001
 var selected = false;
 var used_station = null
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+func register_station(station):
+	 station.connect("station_selected", self, "_on_Station_selected")
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
@@ -30,3 +28,4 @@ func leave_station():
 	self.used_station = null
 	emit_signal("client_left", money)
 	print("left station")
+	queue_free()

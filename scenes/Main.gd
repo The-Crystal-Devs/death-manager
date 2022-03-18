@@ -6,7 +6,7 @@ export(PackedScene) var client_scene
 var money = 0
 
 func _ready():
-	pass
+	spawn_client()
 
 func _on_Client_client_left(money_received):
 	self.money += money_received
@@ -15,4 +15,5 @@ func _on_Client_client_left(money_received):
 func spawn_client():
 	var client = client_scene.instance()
 	client.position = Vector2(42, 42)
+	client.register_station(get_node("Station"))
 	add_child(client)
