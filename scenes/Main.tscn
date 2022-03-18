@@ -12,11 +12,6 @@ client_scene = ExtResource( 2 )
 [node name="Station" parent="." instance=ExtResource( 3 )]
 position = Vector2( 531, 256 )
 
-[node name="Client" parent="." instance=ExtResource( 2 )]
-position = Vector2( 756, 163 )
-
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [connection signal="money_changed" from="." to="HUD" method="_on_Main_money_changed"]
-[connection signal="station_selected" from="Station" to="Client" method="_on_Station_selected"]
-[connection signal="client_left" from="Client" to="." method="_on_Client_client_left"]
