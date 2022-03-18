@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stationPossiblePosition.png-3b76504eac90dae68432ab84b5a9629a.stex"
+path="res://.import/green_square.png-6716ed504967ee072e4c6101e0e80faa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stationPossiblePosition.png"
-dest_files=[ "res://.import/stationPossiblePosition.png-3b76504eac90dae68432ab84b5a9629a.stex" ]
+source_file="res://assets/green_square.png"
+dest_files=[ "res://.import/green_square.png-6716ed504967ee072e4c6101e0e80faa.stex" ]
 
 [params]
 
