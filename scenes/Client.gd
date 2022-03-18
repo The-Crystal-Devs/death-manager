@@ -1,6 +1,7 @@
 extends Area2D
 
 signal client_left
+signal station_selected
 
 export var wanted_station_type = "pouet"
 export var money = 9001
@@ -22,6 +23,7 @@ func _on_Station_selected(station):
 		selected = false
 		used_station = station
 		station.asign_client(self)
+		emit_signal("station_selected", self)
 		print("joined station")
 
 func leave_station():
