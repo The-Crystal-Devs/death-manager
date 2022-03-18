@@ -18,3 +18,7 @@ func spawn_client():
 	client.register_station(get_node("Station"))
 	client.connect("client_left", self, "_on_Client_left")
 	add_child(client)
+
+
+func _on_NewClientTimer_timeout():
+	spawn_client()
