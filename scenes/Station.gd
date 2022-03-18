@@ -1,7 +1,7 @@
 extends Area2D
 
 signal station_selected
-
+class_name Station
 enum StationType {TYPE_1, TYPE_2, TYPE_3}
 export (StationType) var type = StationType.TYPE_1
 var client = null

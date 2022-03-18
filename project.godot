@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Station",
+"language": "GDScript",
+"path": "res://scenes/Station.gd"
+} ]
+_global_script_class_icons={
+"Station": ""
+}
+
 [application]
 
 config/name="minijam102"
