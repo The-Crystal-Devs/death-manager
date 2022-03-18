@@ -7,11 +7,13 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
+client_scene = ExtResource( 2 )
 
 [node name="Station" parent="." instance=ExtResource( 3 )]
+position = Vector2( 531, 256 )
 
 [node name="Client" parent="." instance=ExtResource( 2 )]
-position = Vector2( 356, 111 )
+position = Vector2( 132, 157 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
