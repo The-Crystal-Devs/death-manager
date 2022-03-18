@@ -22,12 +22,14 @@ func _on_Station_selected(station):
 	if(selected and used_station == null and station.client == null and station.type == wanted_station_type):
 		selected = false
 		used_station = station
-		station.asign_client(self)
+		station.assign_client(self)
+		move_to_station(station)
 		emit_signal("station_selected", self)
-		print("joined station")
+
+func move_to_station(station):
+	self.position = station.position
 
 func leave_station():
 	self.used_station = null
 	emit_signal("client_left", money)
-	print("left station")
 	queue_free()

@@ -14,7 +14,7 @@ func _input_event(viewport, event, shape_idx):
 	and event.is_pressed():
 		emit_signal("station_selected", self)
 
-func asign_client(client): 
+func assign_client(client): 
 	self.client = client
 	$StationDuration.start()
 
