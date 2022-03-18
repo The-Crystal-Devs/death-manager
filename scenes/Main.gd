@@ -7,6 +7,7 @@ var money = 0
 var waiting_clients = []
 
 func _ready():
+	randomize()
 	spawn_client()
 
 func _on_Client_left(money_received):
@@ -17,13 +18,20 @@ func _on_Client_station_selected(client):
 	waiting_clients.remove(waiting_clients.find(client))
 	
 func spawn_client():
+	var client = init_new_client()
+	connect_to_clients_signals(client)
+	add_child(client)
+	waiting_clients.push_back(client)
+	
+func connect_to_clients_signals(client):
+	client.connect("client_left", self, "_on_Client_left")
+	client.connect("station_selected", self, "_on_Client_station_selected")
+	
+func init_new_client():
 	var client = client_scene.instance()
 	client.position = compute_new_client_position()
 	client.register_station(get_node("Station"))
-	client.connect("client_left", self, "_on_Client_left")
-	client.connect("station_selected", self, "_on_Client_station_selected")
-	add_child(client)
-	waiting_clients.push_back(client)
+	return client
 	
 func compute_new_client_position(): 
 	var last_client = waiting_clients.back()

@@ -5,13 +5,15 @@ signal station_selected
 
 enum StationType {TYPE_1, TYPE_2, TYPE_3}
 
-export (StationType) var wanted_station_type = StationType.TYPE_1
+export (StationType) var wanted_station_type
 export var money = 9001
 
 var selected = false;
 var used_station = null
 
 func _ready():
+	wanted_station_type = StationType.values()[randi() % StationType.values().size()]
+	
 	var wanted_station_image = pick_station_image()
 	$WantedStationType.texture = wanted_station_image
 	
