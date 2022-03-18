@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="minijam102"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/StartMenu.tscn"
 config/icon="res://assets/icon.png"
 
 [global]

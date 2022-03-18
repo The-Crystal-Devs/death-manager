@@ -4,5 +4,6 @@ extends CanvasLayer
 func _ready():
 	pass # Replace with function body.
 
-func _on_Main_money_changed(money):
+func _on_Level_money_changed(money):
 	$MoneyLabel.text = "$ " + str(money)
+
