@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Station",
 "language": "GDScript",
 "path": "res://scenes/Station.gd"
+}, {
+"base": "Reference",
+"class": "Stations",
+"language": "GDScript",
+"path": "res://scenes/scripts/Stations.gd"
 } ]
 _global_script_class_icons={
-"Station": ""
+"Station": "",
+"Stations": ""
 }
 
 [application]
@@ -23,10 +29,6 @@ _global_script_class_icons={
 config/name="minijam102"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://assets/icon.png"
-
-[autoload]
-
-StationType="*res://scenes/scripts/StationType.gd"
 
 [global]
 

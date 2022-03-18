@@ -31,6 +31,8 @@ func init_new_client():
 	var client = client_scene.instance()
 	client.position = compute_new_client_position()
 	client.register_station(get_node("Station"))
+	client.register_station(get_node("Station2"))
+	client.register_station(get_node("Station3"))
 	return client
 	
 func compute_new_client_position(): 

@@ -23,7 +23,7 @@ type = 2
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="NewClientTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="money_changed" from="." to="HUD" method="_on_Main_money_changed"]
