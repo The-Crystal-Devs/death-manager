@@ -15,6 +15,11 @@ var ghosts = []
 
 func _ready():
 	randomize()
+	
+	var stations = get_stations_nodes()
+	for station in stations:
+		station.connect("station_selected", get_player_node(), "_on_element_selected")
+	
 	spawn_client()
 
 func spawn_client():
@@ -27,12 +32,18 @@ func connect_to_clients_signals(client):
 	client.connect("client_left", self, "_on_Client_left")
 	client.connect("station_selected", self, "_on_Client_station_selected")
 	client.connect("client_died", self, "_on_Client_died")
-	client.connect("client_selected", get_node("Player"), "_on_Client_selected")
+	client.connect("client_selected", get_player_node(), "_on_element_selected")
+	
+func get_player_node():
+	return get_node("Player")
+	
+func get_stations_nodes():
+	return get_tree().get_nodes_in_group("Stations")
 	
 func init_new_client():
 	var client = client_scene.instance()
 	client.position = compute_new_client_position()
-	var stations = get_tree().get_nodes_in_group("Stations")
+	var stations = get_stations_nodes()
 	for station in stations:
 		client.register_station(station)
 	return client

@@ -10,9 +10,9 @@ var moveDuration
 func _ready():
 	reset_movement()
 
-func _on_Client_selected(client):
+func _on_element_selected(element):
 	reset_movement()
-	destination = client.position
+	destination = element.position
 	
 func reset_movement():
 	time = 0
