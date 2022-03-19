@@ -52,6 +52,8 @@ scale = Vector2( 0.25, 0.25 )
 position = Vector2( 0, -25 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 6 )
+frame = 3
 playing = true
 
+[connection signal="body_entered" from="." to="." method="_on_Client_body_entered"]
 [connection signal="input_event" from="." to="." method="_input_event"]

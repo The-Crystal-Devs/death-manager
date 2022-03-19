@@ -23,7 +23,6 @@ func register_station(station):
 func _input_event(viewport, event, shape_idx):
 	if is_left_clicked(event):
 		emit_signal("client_selected", self)
-		select_client()
 		
 func select_client():
 	get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME ,"Clients", "unselect")
@@ -57,3 +56,6 @@ func die():
 	self.used_station = null
 	emit_signal("client_died")
 	queue_free()
+
+func _on_Client_body_entered(body):
+	select_client()
