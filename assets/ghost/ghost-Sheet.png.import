@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MiniVillagerMan.png-0bca1a63be37252905dcaab396eed880.stex"
+path="res://.import/ghost-Sheet.png-98f85b08e9bdb55b05f6b93883a405ff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MinifolksVillagers/Without Outline/MiniVillagerMan.png"
-dest_files=[ "res://.import/MiniVillagerMan.png-0bca1a63be37252905dcaab396eed880.stex" ]
+source_file="res://assets/ghost/ghost-Sheet.png"
+dest_files=[ "res://.import/ghost-Sheet.png-98f85b08e9bdb55b05f6b93883a405ff.stex" ]
 
 [params]
 

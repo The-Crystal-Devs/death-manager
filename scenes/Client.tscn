@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Client.gd" type="Script" id=2]
 [ext_resource path="res://assets/MinifolksVillagers/Outline/MiniVillagerMan.png" type="Texture" id=3]
@@ -26,12 +26,47 @@ flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 96, 0, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 64, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 96, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 128, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 160, 32, 32, 32 )
+
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
-"name": "default",
+"name": "idle",
 "speed": 4.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
 } ]
 
 [node name="Client" type="Area2D" groups=["Clients"]]
@@ -52,8 +87,10 @@ scale = Vector2( 0.25, 0.25 )
 position = Vector2( 0, -25 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 6 )
+animation = "idle"
 frame = 3
 playing = true
 
-[connection signal="body_entered" from="." to="." method="_on_Client_body_entered"]
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="input_event" from="." to="." method="_input_event"]

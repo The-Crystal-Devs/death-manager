@@ -13,14 +13,14 @@ client_scene = ExtResource( 2 )
 ghost_scene = ExtResource( 5 )
 
 [node name="Station" parent="." instance=ExtResource( 1 )]
-position = Vector2( 531, 256 )
+position = Vector2( 350, 250 )
 
 [node name="Station2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 623, 257 )
+position = Vector2( 500, 250 )
 type = 1
 
 [node name="Station3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 722, 257 )
+position = Vector2( 650, 250 )
 type = 2
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
@@ -30,7 +30,10 @@ wait_time = 3.0
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 906, 112 )
+position = Vector2( 500, 164 )
 
 [connection signal="money_changed" from="." to="HUD" method="_on_Level_money_changed"]
+[connection signal="station_selected" from="Station" to="Player" method="_on_station_selected"]
+[connection signal="station_selected" from="Station2" to="Player" method="_on_station_selected"]
+[connection signal="station_selected" from="Station3" to="Player" method="_on_station_selected"]
 [connection signal="timeout" from="NewClientTimer" to="." method="_on_NewClientTimer_timeout"]
