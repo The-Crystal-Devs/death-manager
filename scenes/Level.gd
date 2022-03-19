@@ -14,12 +14,7 @@ var ghosts = []
 ## Scene init
 
 func _ready():
-	randomize()
-	
-	var stations = get_stations_nodes()
-	#for station in stations:
-	#	station.connect("station_selected", get_player_node(), "_on_station_selected")
-	
+	randomize()	
 	spawn_client()
 
 func spawn_client():
@@ -61,6 +56,9 @@ func _on_Client_left(money_received):
 	
 func _on_Client_station_selected(client): 
 	waiting_clients.remove(waiting_clients.find(client))
+	
+func _on_Ghost_station_selected(ghost):
+	ghosts.remove(ghosts.find(ghost))
 		
 func _on_Client_died():
 	spawn_ghost()
@@ -68,6 +66,8 @@ func _on_Client_died():
 func spawn_ghost():
 	var ghost = ghost_scene.instance()
 	ghost.position = compute_new_ghost_position()
+	ghost.connect("ghost_selected", get_player_node(), "_on_ghost_selected")
+	ghost.connect("station_selected", self, "_on_Ghost_station_selected")
 	add_child(ghost)
 	ghosts.push_back(ghost)
 

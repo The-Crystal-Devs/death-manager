@@ -7,6 +7,7 @@ class_name Station
 export (Stations.Type) var type = Stations.Type.TYPE_1
 export var chances_to_kill_client = 100
 var client = null
+var ghost = null
 
 func _ready():
 	var station_image = Stations.pick_station_image(type)
@@ -23,6 +24,10 @@ func assign_client(client):
 	client.used_station = self
 	self.client = client
 	$StationDuration.start()
+
+func assign_ghost(ghost):
+	ghost.used_station = self
+	self.ghost = ghost
 
 func _on_StationDuration_timeout():
 	var kill_client = randi() % 100 <= chances_to_kill_client

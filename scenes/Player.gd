@@ -7,12 +7,12 @@ var destination_type
 var tween
 var can_move = true
 
-enum DestinationType {CLIENT, STATION}
+enum DestinationType {CLIENT, STATION, GHOST}
 
 func _ready():
 	tween = get_node("Tween")
 	tween.connect("tween_completed", self, "_on_movement_completed")
-
+	
 func _on_client_selected(client):
 	if(client == destination || not can_move):
 		return
@@ -35,8 +35,21 @@ func _on_station_selected(station):
 	if(previous_destination_type == DestinationType.CLIENT):
 		can_move = not previous_destination._on_Station_selected(destination)
 		destination_position = destination.position + Vector2(previous_destination.get_node("ClientColision").shape.extents.x * 2, 0)
+	elif(previous_destination_type == DestinationType.GHOST):
+		can_move = not previous_destination._on_Station_selected(destination)
+		destination_position = destination.position + Vector2(previous_destination.get_node("GhostColision").shape.extents.x * 2, 0)
 	else:
 		destination_position = destination.position
+	
+	_move_to_destination(destination_position)
+	
+func _on_ghost_selected(ghost):
+	if(ghost == destination or not can_move):
+		return
+	update_previous_destination()
+	destination = ghost
+	destination_type = DestinationType.GHOST
+	var destination_position = destination.position + Vector2(ghost.get_node("GhostColision").shape.extents.x * 2, 0)
 	
 	_move_to_destination(destination_position)
 
@@ -58,9 +71,21 @@ func _on_movement_completed(object, key):
 	if(destination_type == DestinationType.CLIENT):
 		destination.select_client()
 		$AnimatedSprite.animation = "idle"
-	elif(destination_type == DestinationType.STATION and previous_destination_type == DestinationType.CLIENT):
-		destination.assign_client(previous_destination)
-		start_operating_station(destination)
+	elif(destination_type == DestinationType.STATION):
+		if(previous_destination_type == DestinationType.CLIENT):
+			destination.assign_client(previous_destination)
+			if(destination.ghost == null):
+				start_operating_station(destination)
+			else:
+				$AnimatedSprite.animation = "idle"				
+				can_move = true
+		elif(previous_destination_type == DestinationType.GHOST):
+			destination.assign_ghost(previous_destination)
+			$AnimatedSprite.animation = "idle"
+			can_move = true
+	elif(destination_type == DestinationType.GHOST):
+		destination.select_ghost()
+		$AnimatedSprite.animation = "idle"
 	
 func start_operating_station(station):
 	station.connect("station_finished", self, "_on_station_timer_timeout")
