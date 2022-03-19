@@ -3,6 +3,7 @@ extends Area2D
 signal station_selected
 class_name Station
 export (Stations.Type) var type = Stations.Type.TYPE_1
+export var chances_to_kill_client = 100
 var client = null
 
 func _ready():
@@ -20,5 +21,11 @@ func assign_client(client):
 	$StationDuration.start()
 
 func _on_StationDuration_timeout():
-	self.client.leave_station()
+	var kill_client = randi() % 100 <= chances_to_kill_client
+
+	if(kill_client):
+		self.client.die()
+	else:
+		self.client.leave_station()
+
 	self.client = null

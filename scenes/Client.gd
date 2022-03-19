@@ -2,6 +2,7 @@ extends Area2D
 
 signal client_left
 signal station_selected
+signal client_died
 
 export (Stations.Type) var wanted_station_type = Stations.Type.TYPE_1
 export var money = 9001
@@ -43,3 +44,8 @@ func leave_station():
 
 func unselect():
 	self.selected = false
+	
+func die():
+	self.used_station = null
+	emit_signal("client_died")
+	queue_free()
