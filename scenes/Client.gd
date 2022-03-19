@@ -22,6 +22,7 @@ func register_station(station):
 
 func _input_event(viewport, event, shape_idx):
 	if is_left_clicked(event):
+		emit_signal("client_selected", self)
 		select_client()
 		
 func select_client():

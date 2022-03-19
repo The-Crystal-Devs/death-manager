@@ -34,9 +34,7 @@ animations = [ {
 "speed": 4.0
 } ]
 
-[node name="Client" type="Area2D" groups=[
-"Clients",
-]]
+[node name="Client" type="Area2D" groups=["Clients"]]
 position = Vector2( 339.191, 116.031 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -54,7 +52,6 @@ scale = Vector2( 0.25, 0.25 )
 position = Vector2( 0, -25 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 6 )
-frame = 2
 playing = true
 
 [connection signal="input_event" from="." to="." method="_input_event"]
