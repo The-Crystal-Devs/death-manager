@@ -1,6 +1,8 @@
 extends Area2D
 
 signal station_selected
+signal station_finished
+
 class_name Station
 export (Stations.Type) var type = Stations.Type.TYPE_1
 export var chances_to_kill_client = 100
@@ -31,3 +33,4 @@ func _on_StationDuration_timeout():
 		self.client.leave_station()
 
 	self.client = null
+	emit_signal("station_finished")
