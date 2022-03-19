@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unsaturated_icon.png-9f373599bd0b2f177f9d8ff19c0cd9ca.stex"
+path="res://.import/MiniQueen.png-1f53135928b3a659b45b523e8af8fbe1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/unsaturated_icon.png"
-dest_files=[ "res://.import/unsaturated_icon.png-9f373599bd0b2f177f9d8ff19c0cd9ca.stex" ]
+source_file="res://assets/MinifolksVillagers/Outline/MiniQueen.png"
+dest_files=[ "res://.import/MiniQueen.png-1f53135928b3a659b45b523e8af8fbe1.stex" ]
 
 [params]
 

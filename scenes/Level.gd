@@ -41,7 +41,7 @@ func compute_new_client_position():
 	if(last_client == null):
 		return init_client_position
 	
-	return last_client.position + Vector2(last_client.get_node("ClientSprite").texture.get_width() + 6, 0)
+	return last_client.position + Vector2(last_client.get_node("ClientColision").shape.extents.x + 20, 0)
 	
 ## Listening to signals
 

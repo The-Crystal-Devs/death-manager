@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unsaturated_icon.png-9f373599bd0b2f177f9d8ff19c0cd9ca.stex"
+path="res://.import/MiniNobleWoman.png-7a8827d49aa197656582cc4bfb88f9ba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/unsaturated_icon.png"
-dest_files=[ "res://.import/unsaturated_icon.png-9f373599bd0b2f177f9d8ff19c0cd9ca.stex" ]
+source_file="res://assets/MinifolksVillagers/Without Outline/MiniNobleWoman.png"
+dest_files=[ "res://.import/MiniNobleWoman.png-7a8827d49aa197656582cc4bfb88f9ba.stex" ]
 
 [params]
 

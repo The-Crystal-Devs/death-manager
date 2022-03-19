@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unsaturated_icon.png-9f373599bd0b2f177f9d8ff19c0cd9ca.stex"
+path="res://.import/Villager1.png-3fddf1e687aef4fdd5d621b97f82942f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/unsaturated_icon.png"
-dest_files=[ "res://.import/unsaturated_icon.png-9f373599bd0b2f177f9d8ff19c0cd9ca.stex" ]
+source_file="res://assets/Villager1.png"
+dest_files=[ "res://.import/Villager1.png-3fddf1e687aef4fdd5d621b97f82942f.stex" ]
 
 [params]
 
