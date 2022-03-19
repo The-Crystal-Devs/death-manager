@@ -88,9 +88,10 @@ position = Vector2( 0, -25 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 6 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Tween" type="Tween" parent="."]
 
 [connection signal="input_event" from="." to="." method="_input_event"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_movement_completed"]

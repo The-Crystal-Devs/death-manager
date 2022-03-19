@@ -18,6 +18,9 @@ func _ready():
 	
 	var wanted_station_image = Stations.pick_station_image(wanted_station_type)
 	$WantedStationType.texture = wanted_station_image
+	
+func _on_movement_completed(object, key):
+	$ClientSprite.animation = "idle"
 
 func register_station(station):
 	 station.connect("station_selected", self, "_on_Station_selected")
