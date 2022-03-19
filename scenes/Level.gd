@@ -2,6 +2,7 @@ extends Node2D
 
 signal money_changed
 export(PackedScene) var client_scene
+export var max_waiting_clients = 8
 
 var money = 0
 var waiting_clients = []
@@ -43,4 +44,5 @@ func compute_new_client_position():
 	return last_client.position + Vector2(last_client.get_node("ClientSprite").texture.get_width() + 6, 0)
 
 func _on_NewClientTimer_timeout():
-	spawn_client()
+	if(waiting_clients.size() < max_waiting_clients):
+		spawn_client()
