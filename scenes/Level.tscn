@@ -29,7 +29,7 @@ type = 2
 wait_time = 3.0
 autostart = true
 
-[node name="Node2D" parent="." instance=ExtResource( 6 )]
+[node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 906, 112 )
 
 [connection signal="money_changed" from="." to="HUD" method="_on_Level_money_changed"]

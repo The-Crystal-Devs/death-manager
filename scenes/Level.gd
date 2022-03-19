@@ -27,6 +27,7 @@ func connect_to_clients_signals(client):
 	client.connect("client_left", self, "_on_Client_left")
 	client.connect("station_selected", self, "_on_Client_station_selected")
 	client.connect("client_died", self, "_on_Client_died")
+	client.connect("client_selected", get_node("Player"), "_on_Client_selected")
 	
 func init_new_client():
 	var client = client_scene.instance()

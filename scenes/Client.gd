@@ -1,6 +1,7 @@
 extends Area2D
 
 signal client_left
+signal client_selected
 signal station_selected
 signal client_died
 
@@ -20,11 +21,17 @@ func register_station(station):
 	 station.connect("station_selected", self, "_on_Station_selected")
 
 func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton \
+	if is_left_clicked(event):
+		select_client()
+		
+func select_client():
+	get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME ,"Clients", "unselect")
+	selected = true;
+		
+func is_left_clicked(event):
+	return event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
-	and event.is_pressed():
-		get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME ,"Clients", "unselect")
-		selected = true;
+	and event.is_pressed()
 
 func _on_Station_selected(station):
 	if(selected and used_station == null and station.client == null and station.type == wanted_station_type):
