@@ -35,6 +35,7 @@ position = Vector2( 500, 164 )
 [node name="OneSecondTimer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="game_is_over" from="." to="HUD" method="_on_Level_game_over"]
 [connection signal="game_is_over" from="." to="Player" method="_on_Level_game_is_over"]
 [connection signal="money_changed" from="." to="HUD" method="_on_Level_money_changed"]
 [connection signal="remaining_seconds_changed" from="." to="HUD" method="_on_Level_remaining_seconds_changed"]

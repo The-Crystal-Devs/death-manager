@@ -19,6 +19,19 @@ margin_top = 2.0
 margin_right = 1023.0
 margin_bottom = 16.0
 text = "120"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+
+[node name="FinalScoreLabel" type="Label" parent="GameOver"]
+margin_left = 380.0
+margin_top = 512.0
+margin_right = 420.0
+margin_bottom = 526.0
+text = "Pouet"
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+margin_left = -1.0
+margin_right = 1032.0
+margin_bottom = 609.0
+color = Color( 1, 1, 1, 0.141176 )
