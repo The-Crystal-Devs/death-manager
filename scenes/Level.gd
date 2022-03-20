@@ -55,6 +55,13 @@ func compute_new_client_position():
 	
 	return last_client.position + Vector2(last_client.get_node("ClientColision").shape.extents.x * 3, 0)
 	
+func recompute_all_waiting_clients_positions():
+	for i in waiting_clients.size():
+		waiting_clients[i].position = compute_client_position(i, waiting_clients[i])
+		
+func compute_client_position(index, client):
+	return init_client_position + Vector2(index * client.get_node("ClientColision").shape.extents.x * 3, 0)
+	
 ## Listening to signals
 
 func _on_Client_left(money_received):
@@ -63,6 +70,7 @@ func _on_Client_left(money_received):
 	
 func _on_Client_station_selected(client): 
 	waiting_clients.remove(waiting_clients.find(client))
+	recompute_all_waiting_clients_positions()
 	
 func _on_Ghost_station_selected(ghost):
 	ghosts.remove(ghosts.find(ghost))
