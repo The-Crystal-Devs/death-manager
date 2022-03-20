@@ -28,6 +28,8 @@ func assign_client(client):
 func assign_ghost(ghost):
 	ghost.used_station = self
 	self.ghost = ghost
+	self.connect("station_finished", ghost, "on_station_finished")
+	ghost.connect("ghost_died", self, "_on_ghost_death")
 
 func _on_StationDuration_timeout():
 	var kill_client = randi() % 100 <= chances_to_kill_client
@@ -39,3 +41,6 @@ func _on_StationDuration_timeout():
 
 	self.client = null
 	emit_signal("station_finished")
+
+func _on_ghost_death():
+	self.ghost = null;

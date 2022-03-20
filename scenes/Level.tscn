@@ -11,7 +11,6 @@
 script = ExtResource( 4 )
 client_scene = ExtResource( 2 )
 ghost_scene = ExtResource( 5 )
-level_duration_in_seconds = 5
 
 [node name="Station" parent="." instance=ExtResource( 1 )]
 position = Vector2( 350, 250 )

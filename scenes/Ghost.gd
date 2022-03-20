@@ -2,10 +2,12 @@ extends Area2D
 
 signal ghost_selected
 signal station_selected
+signal ghost_died
 
 var selected = false
 var used_station = null
 var tween
+var remaining_life = 5
 
 func _ready():
 	tween = get_node("Tween")
@@ -47,3 +49,12 @@ func move_to_station(station):
 		self.position, destination, distance * 0.005,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
+
+func on_station_finished():
+	remaining_life -= 1
+	if(remaining_life <= 0):
+		emit_signal("ghost_died")
+		$GhostSprite.animation = "death"
+		yield($GhostSprite, "animation_finished")
+		queue_free()
+		
