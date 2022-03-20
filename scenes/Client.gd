@@ -30,7 +30,6 @@ func _input_event(viewport, event, shape_idx):
 		emit_signal("client_selected", self)
 		
 func select_client():
-	print("select client")
 	get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME ,"Clients", "unselect")
 	selected = true;
 
