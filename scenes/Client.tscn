@@ -83,14 +83,14 @@ shape = SubResource( 1 )
 
 [node name="WantedStationType" type="Sprite" parent="."]
 position = Vector2( 26, 26 )
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="ClientSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -25 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 12 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Tween" type="Tween" parent="."]

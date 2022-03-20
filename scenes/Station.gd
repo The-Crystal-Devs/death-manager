@@ -4,7 +4,7 @@ signal station_selected
 signal station_finished
 
 class_name Station
-export (Stations.Type) var type = Stations.Type.TYPE_1
+export (Stations.Type) var type
 export var chances_to_kill_client = 100
 var client = null
 var ghost = null
@@ -12,6 +12,7 @@ var ghost = null
 func _ready():
 	var station_image = Stations.pick_station_image(type)
 	$Sprite.texture = station_image
+
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
