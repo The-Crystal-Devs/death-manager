@@ -22,6 +22,7 @@ func _input_event(viewport, event, shape_idx):
 
 func assign_client(client):
 	client.used_station = self
+	client.unselect()
 	self.client = client
 	$StationDuration.start()
 

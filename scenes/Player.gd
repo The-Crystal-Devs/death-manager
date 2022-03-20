@@ -31,7 +31,7 @@ func _on_station_selected(station):
 	update_previous_destination()
 	destination = station
 	destination_type = DestinationType.STATION
-	
+
 	var destination_position
 	if(previous_destination_type == DestinationType.CLIENT):
 		can_move = not previous_destination._on_Station_selected(destination)
@@ -41,9 +41,9 @@ func _on_station_selected(station):
 		destination_position = destination.position + Vector2(previous_destination.get_node("GhostColision").shape.extents.x * 2, 0)
 	else:
 		destination_position = destination.position
-	
+
 	_move_to_destination(destination_position)
-	
+
 func _on_ghost_selected(ghost):
 	if(ghost == destination or not can_move  or game_is_over):
 		return
@@ -51,7 +51,7 @@ func _on_ghost_selected(ghost):
 	destination = ghost
 	destination_type = DestinationType.GHOST
 	var destination_position = destination.position + Vector2(ghost.get_node("GhostColision").shape.extents.x * 2, 0)
-	
+
 	_move_to_destination(destination_position)
 
 func update_previous_destination():
@@ -73,7 +73,7 @@ func _on_movement_completed(object, key):
 		destination.select_client()
 		$AnimatedSprite.animation = "idle"
 	elif(destination_type == DestinationType.STATION):
-		if(previous_destination_type == DestinationType.CLIENT):
+		if(previous_destination_type == DestinationType.CLIENT and previous_destination.selected):
 			destination.assign_client(previous_destination)
 			if(destination.ghost == null):
 				start_operating_station(destination)

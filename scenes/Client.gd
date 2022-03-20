@@ -43,7 +43,6 @@ func is_left_clicked(event):
 
 func _on_Station_selected(station):
 	if(selected and used_station == null and station.client == null and station.type == wanted_station_type):
-		selected = false
 		move_to_station(station)
 		emit_signal("station_selected", self)
 		return true
