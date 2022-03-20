@@ -10,7 +10,7 @@ margin_left = 452.0
 margin_top = 156.0
 margin_right = 555.0
 margin_bottom = 171.0
-text = "The best game"
+text = "Death manager"
 
 [node name="PlayButton" type="Button" parent="."]
 anchor_right = 0.381
