@@ -14,8 +14,7 @@ var tween
 
 func _ready():
 	tween = get_node("Tween")
-	wanted_station_type = Stations.Type.TYPE_1
-	#pick_random_station_type()
+	wanted_station_type = Stations.pick_random_station_type()
 	
 	var wanted_station_image = Stations.pick_station_image(wanted_station_type)
 	$WantedStationType.texture = wanted_station_image
