@@ -7,3 +7,5 @@ func _ready():
 func _on_Level_money_changed(money):
 	$MoneyLabel.text = "$ " + str(money)
 
+func _on_Level_remaining_seconds_changed(remaining_seconds):
+	$TimerLabel.text = str(remaining_seconds)

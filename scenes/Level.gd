@@ -1,8 +1,12 @@
 extends Node2D
 
 signal money_changed
+signal remaining_seconds_changed
+signal game_is_over
+
 export(PackedScene) var client_scene
 export(PackedScene) var ghost_scene
+export var level_duration_in_seconds = 120
 export var max_waiting_clients = 8
 export var init_client_position = Vector2(42, 42)
 export var init_ghost_position = Vector2(42, 110)
@@ -10,19 +14,22 @@ export var init_ghost_position = Vector2(42, 110)
 var money = 0
 var waiting_clients = []
 var ghosts = []
+var remaining_seconds
+var is_game_over = false
 
 ## Scene init
 
 func _ready():
 	randomize()	
 	spawn_client()
+	update_remaining_seconds(level_duration_in_seconds)
 
 func spawn_client():
 	var client = init_new_client()
 	connect_to_clients_signals(client)
 	add_child(client)
 	waiting_clients.push_back(client)
-		
+	
 func connect_to_clients_signals(client):
 	client.connect("client_left", self, "_on_Client_left")
 	client.connect("client_died", self, "_on_Client_died")
@@ -79,5 +86,17 @@ func compute_new_ghost_position():
 	return last_ghost.position + Vector2(last_ghost.get_node("GhostColision").shape.extents.x + 12 , 0)
 	
 func _on_NewClientTimer_timeout():
-	if(waiting_clients.size() < max_waiting_clients):
+	if(waiting_clients.size() < max_waiting_clients and not is_game_over):
 		spawn_client()
+
+func update_remaining_seconds(new_value):
+	remaining_seconds = new_value
+	emit_signal("remaining_seconds_changed", remaining_seconds)
+
+func _on_OneSecondTimer_timeout():
+	update_remaining_seconds(remaining_seconds - 1)
+	
+	if(remaining_seconds == 0):
+		$OneSecondTimer.stop()
+		emit_signal("game_is_over")
+		is_game_over = true

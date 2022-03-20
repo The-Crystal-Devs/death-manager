@@ -6,6 +6,7 @@ var destination
 var destination_type
 var tween
 var can_move = true
+var game_is_over = false
 
 enum DestinationType {CLIENT, STATION, GHOST}
 
@@ -14,7 +15,7 @@ func _ready():
 	tween.connect("tween_completed", self, "_on_movement_completed")
 	
 func _on_client_selected(client):
-	if(client == destination || not can_move):
+	if(client == destination or not can_move or game_is_over):
 		return
 	update_previous_destination()
 	destination = client
@@ -25,7 +26,7 @@ func _on_client_selected(client):
 	_move_to_destination(destination_position)
 	
 func _on_station_selected(station):
-	if(station == destination || not can_move):
+	if(station == destination or not can_move or game_is_over):
 		return
 	update_previous_destination()
 	destination = station
@@ -44,7 +45,7 @@ func _on_station_selected(station):
 	_move_to_destination(destination_position)
 	
 func _on_ghost_selected(ghost):
-	if(ghost == destination or not can_move):
+	if(ghost == destination or not can_move  or game_is_over):
 		return
 	update_previous_destination()
 	destination = ghost
@@ -98,3 +99,6 @@ func stop_operating_station():
 	
 func _on_station_timer_timeout():
 	stop_operating_station()
+
+func _on_Level_game_is_over():
+	game_is_over = true

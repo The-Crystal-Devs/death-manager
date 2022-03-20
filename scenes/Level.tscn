@@ -11,6 +11,7 @@
 script = ExtResource( 4 )
 client_scene = ExtResource( 2 )
 ghost_scene = ExtResource( 5 )
+level_duration_in_seconds = 5
 
 [node name="Station" parent="." instance=ExtResource( 1 )]
 position = Vector2( 350, 250 )
@@ -32,8 +33,14 @@ autostart = true
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 500, 164 )
 
+[node name="OneSecondTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="game_is_over" from="." to="Player" method="_on_Level_game_is_over"]
 [connection signal="money_changed" from="." to="HUD" method="_on_Level_money_changed"]
+[connection signal="remaining_seconds_changed" from="." to="HUD" method="_on_Level_remaining_seconds_changed"]
 [connection signal="station_selected" from="Station" to="Player" method="_on_station_selected"]
 [connection signal="station_selected" from="Station2" to="Player" method="_on_station_selected"]
 [connection signal="station_selected" from="Station3" to="Player" method="_on_station_selected"]
 [connection signal="timeout" from="NewClientTimer" to="." method="_on_NewClientTimer_timeout"]
+[connection signal="timeout" from="OneSecondTimer" to="." method="_on_OneSecondTimer_timeout"]

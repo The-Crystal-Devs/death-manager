@@ -12,3 +12,10 @@ margin_left = -20.0
 margin_right = 20.0
 margin_bottom = 14.0
 text = "0$"
+
+[node name="TimerLabel" type="Label" parent="."]
+margin_left = 983.0
+margin_top = 2.0
+margin_right = 1023.0
+margin_bottom = 16.0
+text = "120"
