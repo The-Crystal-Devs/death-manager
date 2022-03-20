@@ -74,6 +74,14 @@ func _on_Client_station_selected(client):
 	
 func _on_Ghost_station_selected(ghost):
 	ghosts.remove(ghosts.find(ghost))
+	recompute_all_ghosts_positions()
+	
+func recompute_all_ghosts_positions():
+	for i in ghosts.size():
+		ghosts[i].position = compute_ghost_position(i, ghosts[i])
+
+func compute_ghost_position(index, ghost):
+	return init_ghost_position + Vector2(index * ghost.get_node("GhostColision").shape.extents.x + 12 , 0)
 		
 func _on_Client_died():
 	spawn_ghost()
