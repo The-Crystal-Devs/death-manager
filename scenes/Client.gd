@@ -6,7 +6,7 @@ signal station_selected
 signal client_died
 
 export (Stations.Type) var wanted_station_type
-export var money = 9001
+export var money = 10
 
 var selected = false
 var used_station = null

@@ -5,7 +5,7 @@ signal station_finished
 
 class_name Station
 export (Stations.Type) var type
-export var chances_to_kill_client = 100
+export var chances_to_kill_client = 20
 var client = null
 var ghost = null
 
