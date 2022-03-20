@@ -39,9 +39,11 @@ func _on_Station_selected(station):
 	return false
 
 func move_to_station(station):
-	var distance = self.position.distance_to(station.position)
+	# Put ghost under the station
+	var destination = station.position + Vector2(0, 60)
+	var distance = self.position.distance_to(destination)
 	tween.remove_all()
 	tween.interpolate_property(self, "position",
-		self.position, station.position, distance * 0.005,
+		self.position, destination, distance * 0.005,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
