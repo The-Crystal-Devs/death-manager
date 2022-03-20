@@ -81,7 +81,7 @@ func recompute_all_ghosts_positions():
 		ghosts[i].position = compute_ghost_position(i, ghosts[i])
 
 func compute_ghost_position(index, ghost):
-	return init_ghost_position + Vector2(index * ghost.get_node("GhostColision").shape.extents.x + 12 , 0)
+	return init_ghost_position + Vector2(index * (ghost.get_node("GhostColision").shape.extents.x + 12), 0)
 		
 func _on_Client_died():
 	spawn_ghost()
